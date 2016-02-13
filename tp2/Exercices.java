@@ -5,10 +5,7 @@ public class Exercices {
 
     public static void main(String [] args)
     {
-
-        // on doit faire en sorte que la fonction principale appelle des sous-fonctions pour chaque exercice :
-        // On développera ici un menu mais pour l'instant osef :
-        regleGraduee();
+        puissance();
     }
 
     public static void regleGraduee()
@@ -16,11 +13,10 @@ public class Exercices {
         Scanner scan = new Scanner(System.in);
 
         int length = 0;
-
         int grad = 0;
-        String segment = "|";
-
         int tailLength = 0;
+
+        String segment = "|";
         String tail = "|";
 
         /**
@@ -50,7 +46,8 @@ public class Exercices {
         /**
          * Préparation du segment de base de la règle :
          */
-        for(int i=1; i<grad; i++) {
+        for(int i=1; i<grad; i++)
+        {
             segment += "-";
         }
 
@@ -58,13 +55,14 @@ public class Exercices {
          * Préparation de la fin de la règle :
          */
         tailLength = length % grad;
-        for(int i = 1; i<tailLength; i++) {
+        for(int i = 1; i<tailLength; i++)
+        {
             tail += "-";
         }
 
 
         /**
-         * Affichage finale de la règle
+         * Affichage final de la règle
          */
         while(length > 0)
         {
@@ -82,6 +80,49 @@ public class Exercices {
 
         System.out.println();
         System.out.println();
+    }
+
+    public static void puissance() {
+        /*
+         *  CA NE MARCHE PAS !!!
+         */
+        Scanner scan = new Scanner(System.in);
+
+        double a;
+        double n;
+        double mod = 0;
+
+        System.out.println("On va calculer a^n");
+
+        System.out.print("a : ");
+        a = scan.nextDouble();
+
+        System.out.print("n : ");
+        n = scan.nextDouble();
+
+        double puissance = a;
+
+        /**
+         * Principe de l'algo : tant que n est pair, on réalise le calcul a^2 * a^{n/2}, et ainsi de suite si n/2 est pair.
+         */
+        while(n%2 == 0) {
+            mod += 1;
+            System.out.println("On va avoir "+mod+" parenthèses imbriquées.");
+            n = n/2;
+        }
+        for(double i=0;i<mod;i++) {
+            System.out.println("mmmmoui");
+            puissance = puissance * puissance;
+        }
+        System.out.println(n);
+        if(n != 1) {
+            for(double i=1; i<=n; i++) {
+                puissance = puissance * a;
+                System.out.println("itération "+i);
+            }
+        }
+
+        System.out.println(puissance);
     }
 
 
