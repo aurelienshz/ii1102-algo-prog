@@ -5,7 +5,10 @@ public class Exercices {
 
     public static void main(String [] args)
     {
-        puissance();
+        calculerTable(4,15);
+        // boolean res = premier();
+
+        // System.out.println(res?"premier":"non premier");
     }
 
     public static void regleGraduee()
@@ -82,10 +85,15 @@ public class Exercices {
         System.out.println();
     }
 
+    /**
+     *  3.2 - puissances
+     *  Cette fonction attend la saisie de deux nombres a et n et calcule a^n
+     *  Le nombre de multiplications est réduit par le constat suivant :
+     *  On cherche p et q tels que n = (2^p)*q, puis on réalise le calcul
+     *  (((a^2)^2)^2 (etc... p fois))^q
+     */
     public static void puissance() {
-        /*
-         *  CA NE MARCHE PAS !!!
-         */
+
         Scanner scan = new Scanner(System.in);
 
         double a;
@@ -124,6 +132,35 @@ public class Exercices {
         }
 
         System.out.println(result);
+    }
+
+
+
+
+    /**
+     *  3.3 - Nombre premier
+     *  Cette fonction attend la saisie d'un nombre, calcule s'il est premier,
+     *  renvoie true si c'est le cas, et false sinon.
+     */
+    public static boolean premier() {
+        Scanner scan = new Scanner(System.in);
+
+        System.out.print("Entrez un nombre : ");
+        long n = scan.nextLong();
+
+        if(n == 1) {
+            return false;
+        }
+        /**
+         * On ne boucle que jusqu'à floor(n/2) car il est impossible que n ait un diviseur entier inférieur à 2
+         */
+        for(long i = 2; i<=Math.floor(n/2); i++) {
+            if(n%i == 0) {
+                return false;    // n pas premier
+            }
+        }
+
+        return true;
     }
 
 
