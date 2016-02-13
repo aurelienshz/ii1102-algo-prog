@@ -203,6 +203,18 @@ public class Exercices {
       }
 
 
+      /**
+       *    3.6 - Recherche dans un tableau
+       *    renvoie l'index de val si trouvé dans tab, -1 sinon
+       */
+      public static int recherche(int val, int[] tab) {
+          for(int i=0;i<tab.length;i++) {
+              if(val==tab[i]) {
+                  return i;
+              }
+          }
+          return -1;
+      }
 
 
 }
