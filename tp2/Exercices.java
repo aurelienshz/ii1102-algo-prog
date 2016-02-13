@@ -165,4 +165,24 @@ public class Exercices {
 
 
 
+    /**
+     *  3.4 - Table de multiplication [1-10]
+     *
+     */
+     public static void multiplication() {
+         int res = 0;
+         for(int i=1;i<=10;i++) {
+             for(int j=1;j<=10;j++) {
+                 res = i*j;
+                 if(res<10) {
+                    System.out.print(res + "  ");
+                 }
+                 else {
+                    System.out.print(res + " ");
+                 }
+             }
+             System.out.println();
+         }
+     }
+
 }
