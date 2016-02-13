@@ -185,4 +185,24 @@ public class Exercices {
          }
      }
 
+     /**
+      * 3.5 - Table de multiplication
+      * Retourne un tableau contenant la table de multiplication de nb, entre 0 et max inclus.
+      */
+      public static int[] calculerTable(int nb, int max) {
+
+          int[] table;
+          table = new int[max+1];
+
+          for(int i=0; i<=max; i++) {
+              table[i] = i * nb;
+              // Debug : voir s'afficher la table au fur et à mesure de sa constuction :
+                // System.out.println(i*nb);
+          }
+          return table;
+      }
+
+
+
+
 }
