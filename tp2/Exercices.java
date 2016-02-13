@@ -89,40 +89,41 @@ public class Exercices {
         Scanner scan = new Scanner(System.in);
 
         double a;
-        double n;
-        double mod = 0;
+        long n;
+        long mod = 0;
 
-        System.out.println("On va calculer a^n");
+        System.out.println("On va calculer a^n (n entier)");
 
         System.out.print("a : ");
         a = scan.nextDouble();
 
         System.out.print("n : ");
-        n = scan.nextDouble();
+        n = scan.nextLong();
 
-        double puissance = a;
+        double result = a;
 
         /**
-         * Principe de l'algo : tant que n est pair, on réalise le calcul a^2 * a^{n/2}, et ainsi de suite si n/2 est pair.
+         * Tant que n est pair, on réalise le calcul a^2 * a^{n/2}, et ainsi de suite si n/2 est pair.
          */
+
         while(n%2 == 0) {
             mod += 1;
-            System.out.println("On va avoir "+mod+" parenthèses imbriquées.");
             n = n/2;
         }
+
         for(double i=0;i<mod;i++) {
-            System.out.println("mmmmoui");
-            puissance = puissance * puissance;
+            result = result * result;
         }
-        System.out.println(n);
-        if(n != 1) {
-            for(double i=1; i<=n; i++) {
-                puissance = puissance * a;
-                System.out.println("itération "+i);
+
+
+        if(n!=1) {
+            double pow = result;
+            for(double i=1; i<n; i++) {
+                result = result * pow;
             }
         }
 
-        System.out.println(puissance);
+        System.out.println(result);
     }
 
 
