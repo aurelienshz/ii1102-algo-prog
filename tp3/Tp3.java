@@ -3,6 +3,9 @@ import java.util.Arrays;
 
 public class Tp3 {
 
+    /**
+     *  La méthode main sert à faire la démonstration des autres méthodes écrites pour le TP
+     */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -35,6 +38,11 @@ public class Tp3 {
 
     }
 
+    /**
+     * Attend la saisie d'un tableau d'entiers par l'utilisateur et retourne ce tableau
+     * @param  n   longueur du tableau à saisir
+     * @return     tableau saisi
+     */
     public static int[] input(int n) {
         Scanner sc = new Scanner(System.in);
         int[] table = new int[n];
@@ -48,6 +56,10 @@ public class Tp3 {
 
     }
 
+    /**
+     * Attend la saisie d'un tableau d'entiers de dimension 3*4 par l'utilisateur et retourne ce tableau
+     * @return     tableau saisi (contient 3 tableaux de 4 éléments)
+     */
     public static int[][] input3x4() {
         Scanner sc = new Scanner(System.in);
         int[][] table = new int[3][4];
@@ -63,14 +75,13 @@ public class Tp3 {
     }
 
     /**
-     *  Renvoie la moyenne ENTIÈRE du tableau :
+     * Renvoie la moyenne ENTIÈRE du tableau :
+     * @param   table   le tableau dont on doit calculer la moyenne
+     * @return          tableau à deux éléments : [0] est la moyenne, [1] est
+     *                  l'index de cette moyenne dans le tableau traité (vaut -1
+     *                  si cette moyenne est absente du tableau traité)
      */
     public static int[] intMean(int[] table) {
-        /**
-         *  Tableau de résultat :
-         *      res[0] : moyenne
-         *      res[1] : index de la moyenne (-1 si absente du tableau)
-         */
 
         int[] res = {0, -1};
 
@@ -89,6 +100,11 @@ public class Tp3 {
         return res;
     }
 
+    /*
+     * Partitionnement d'un tableau autour d'un pivot
+     * @param   table   Le tableau à partitionner
+     * @param   pivot   La *valeur* du pivot
+     */
     public static int[] partition(int[] table, int pivot) {
         int lowIndex = 0;
         int highIndex = table.length - 1;
