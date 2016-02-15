@@ -127,4 +127,21 @@ public class Tp3 {
         return res;
     }
 
+    /**
+     * Tri rapide d'une portion de tableau
+     * @param   table   le tableau où se trouve la portion à trier (tri en place --> table est passé par référence)
+     * @param   first   l'indice du début de la portion à trier
+     * @param   last    l'indice de fin de la portion à trier
+     * @return
+     */
+    public static int[] quicksort(int[] table, int first, int last) {
+        if(first < last) {
+            int pivot = table[0];
+            pivot = partition(table, first, last, pivot); // Il faut adapter les arguments de partition ou savoir attraper les bonnes valeurs
+
+            quicksort(table, first, pivot-1);
+            quicksort(table, pivot+1, last);
+        }
+    }
+
 }
