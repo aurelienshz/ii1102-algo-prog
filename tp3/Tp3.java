@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class Tp3 {
 
@@ -18,6 +19,9 @@ public class Tp3 {
         System.out.println("Moyenne entière du tableau : "+mean[0]);
         System.out.println("Index de la moyenne : "+((mean[1]==-1)?"Moyenne absente":mean[1]));
 
+
+        System.out.println("Partition du tableau autour de la moyenne :");
+        System.out.println(Arrays.toString(partition(table, mean[0])));
 
         System.out.println("Saisie d'un tableau 3x4 éléments :");
         int[][] table3x4 = input3x4();
@@ -80,6 +84,28 @@ public class Tp3 {
                 res[1] = i;
                 break;
             }
+        }
+
+        return res;
+    }
+
+    public static int[] partition(int[] table, int pivot) {
+        int lowIndex = 0;
+        int highIndex = table.length - 1;
+        int[] res = new int[table.length];
+
+        for(int elt: table) {
+            if(elt < pivot) {
+                res[lowIndex] = elt;
+                lowIndex ++;
+            }
+            else if(elt > pivot) {
+                res[highIndex] = elt;
+                highIndex --;
+            }
+        }
+        for(int i = lowIndex; i<highIndex; i++) {
+            res[i] = pivot;
         }
 
         return res;
