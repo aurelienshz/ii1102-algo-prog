@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Exercices {
+public class tp2 {
 
 
     /**
