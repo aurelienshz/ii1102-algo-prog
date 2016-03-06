@@ -1,3 +1,5 @@
+import java.awt.Color;
+
 public class Balle {
 	
 	/**
@@ -9,7 +11,9 @@ public class Balle {
     
     public double y;      // m
     public double Vy;     // m/s
-    public double Ay; // m/s^2
+    public double Ay; 	  // m/s^2
+    
+    public Color color = Config.defaultColor;
 	
 	public Balle(double x, double y) {
 		this.x = x;
@@ -27,23 +31,30 @@ public class Balle {
 		nextA();
 	}
 	
+	public Balle(double x, double y, Color color) {
+		this(x,y);
+		this.color = color;
+	}
 	
+	public Balle(double x, double y, double Vx, double Vy, Color color) {
+		this(x,y,Vx,Vy);
+		this.color = color;
+	}
 	
     /**
      * Pas de temps
      */
-    public double t = 0.01;     // s    
+    public double t = Config.t;     // s    
 
     /**
      * Coefficients relatifs aux forces
      * Ils permettent de calculer l'accélération de la balle qqsoit t.
      */
 	    // Accélération de la pesanteur :
-	    public double g = -9.81; // . e_y (m/s^2)
+	    public double g = Config.g; // . e_y (m/s^2)
 	    
-	    // Coefficient de frottement fluide rapporté à la masse de la balle :
-	    // 0.05 semble être une bonne valeur : la hauteur des rebonds se stabilise alors autour de 0.7 pour une balle "parfaite" (ie e = 1) 
-	    public double k = 0.05; // *v^2 = R (N) (force induite par la résistance de l'air)
+	    // Coefficient de frottement fluide rapporté à la masse de la balle : 
+	    public double k = Config.k; // *v^2 = R (N) (force induite par la résistance de l'air)
     
     /**
      * Calcule les paramètres à l'instant suivant :

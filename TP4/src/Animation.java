@@ -1,7 +1,7 @@
 public class Animation {
 	public int xMax = 1;
 	public double yMax;
-	public float width= .03f;
+	public float width = Config.width;
 	
 	
 	
@@ -11,12 +11,12 @@ public class Animation {
 		
 		StdDraw.setXscale(-width, xMax+width);
 		StdDraw.setYscale(-width, yMax+width);
-		StdDraw.setPenColor(StdDraw.RED);
 	}
 	
 	public void nextFrame(Balle[] balles) {
 		StdDraw.clear(StdDraw.WHITE);
     	for(Balle balle : balles) {
+    		StdDraw.setPenColor(balle.color);
     		StdDraw.filledCircle(balle.x, balle.y, width);
     	}
 		StdDraw.show(10);
