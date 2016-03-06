@@ -2,7 +2,7 @@ public class BouncingBalls {
 
     public static void main(String[] args) {
         // On instancie une baballe :
-        Balle balle = new Balle();
+        Balle balle = new Balle(.5, 1);
 
         // On fabrique un espace pour les faire évoluer :
         Space space = new Space(balle);
@@ -12,12 +12,15 @@ public class BouncingBalls {
 
     	// Vitesse minimale du critère d'arrêt de l'animation :
         // .3 semble être une bonne valeur
-        double eps = .3;
-
+        double eps = .001;
+        
+        int frame = 0;
+        
         // On interagit avec l'espace entier, qui se charge de les faire rebondir :
-        while(Math.abs(balle.Vx) > eps || Math.abs(balle.Vy) > eps) {
+        while(frame < 100 || Math.abs(balle.Vx) > eps || Math.abs(balle.Vy) > eps) {
             space.next();
             animation.nextFrame(balle.x, balle.y);
+            frame++;
         }
         
     }
