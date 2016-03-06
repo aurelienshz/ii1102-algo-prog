@@ -6,6 +6,8 @@ public class Space {
      */
     public double top = 1;
     public double bottom = 0;
+    public double left = 0;
+    public double right = 1;
 
     /**
      * Balles présentes dans l'espace :
@@ -26,13 +28,23 @@ public class Space {
 
     public void bounce() {
         if(baballe.y > this.top) {
-            baballe.y = top - (baballe.y - top);
-            baballe.Vy = -baballe.Vy;
+            baballe.y = this.top - (baballe.y - this.top);
+            baballe.Vy = -baballe.Vy * 0.95;
         }
 
         if(baballe.y < this.bottom) {
-            baballe.y = bottom + (bottom - baballe.y);
-            baballe.Vy = -baballe.Vy;
+            baballe.y = this.bottom + (this.bottom - baballe.y);
+            baballe.Vy = -baballe.Vy * 0.95;
+        }
+        
+        if(baballe.x < this.left) {
+            baballe.x = this.left + (this.left - baballe.x);
+            baballe.Vx = -baballe.Vx * 0.9;
+        }
+        
+        if(baballe.x > this.right) {
+            baballe.x = this.right - (baballe.x - this.right);
+            baballe.Vx = -baballe.Vx * 0.9;
         }
     }
 

@@ -1,7 +1,7 @@
 public class BouncingBalls {
 
     public static void main(String[] args) {
-        // On instancie des baballes :
+        // On instancie une baballe :
         Balle balle = new Balle();
 
         // On fabrique un espace pour les faire évoluer :
@@ -10,12 +10,20 @@ public class BouncingBalls {
     	// On initialise l'animation :
         Animation animation = new Animation(space.top);
 
+    	// Vitesse minimale :
+        double eps = 0.001;
+        
+        // Nombre d'images calculées :
+        int frame = 0;
         
         // On interagit avec l'espace entier, qui se charge de les faire rebondir :
-        for(int i=0; i<1500; i++) {
-            System.out.println(balle.y);
+        while(frame <= 100 || Math.abs(balle.Vx) > eps || Math.abs(balle.Vy) > eps) {
             space.next();
-            animation.nextFrame(balle.y);
+            animation.nextFrame(balle.x, balle.y);
+            frame++;
+            System.out.println("Vx : "+balle.Vx);
+            System.out.println("Vy : "+balle.Vy);
+            System.out.println(frame);
         }
         
     }
