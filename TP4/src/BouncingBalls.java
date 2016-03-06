@@ -15,15 +15,12 @@ public class BouncingBalls {
         
         // Nombre d'images calculées :
         int frame = 0;
-        
+
         // On interagit avec l'espace entier, qui se charge de les faire rebondir :
         while(frame <= 100 || Math.abs(balle.Vx) > eps || Math.abs(balle.Vy) > eps) {
             space.next();
             animation.nextFrame(balle.x, balle.y);
             frame++;
-            System.out.println("Vx : "+balle.Vx);
-            System.out.println("Vy : "+balle.Vy);
-            System.out.println(frame);
         }
         
     }

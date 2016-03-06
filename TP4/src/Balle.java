@@ -16,15 +16,33 @@ public class Balle {
     public double Vx = 1;
     public double Ax = 0;
 
-
+    /**
+     * Coefficients relatifs aux forces
+     * permettent de calculer l'accélération de la balle
+     */
+    // Accélération de la pesanteur :
+    public double g = -9.81; // . e_y (m/s^2)
+    // Coefficient de frottement fluide rapporté à la masse de la balle :
+    // 0.05 semble être une bonne valeur : la hauteur des rebonds se stabilise alors autour de 0.7 pour une balle "parfaite" (ie e = 1) 
+    public double k = 0.05; // *v^2 = R (N) (force induite par la résistance de l'air)
+    
     /**
      * Calcule les paramètres à l'instant suivant :
      */
      public void next() {
+    	 nextA();
          nextV();
          nextPos();
      }
 
+    /**
+     * Calcule l'accélération à l'instant suivant :
+     */
+    private void nextA() {
+    	this.Ay = g - k*this.Vy;
+    	this.Ax = - k*this.Vx;
+    }
+     
     /**
      * Calcule la vitesse à l'instant suivant
      */
