@@ -12,7 +12,8 @@ public class Space {
     /**
      * e : coefficient de restitution des rebonds :
      */
-    public double e = 1;
+    // 0.9 semble être une bonne valeur :
+    public double e = 0.9;
 
     /**
      * Balles présentes dans l'espace :
