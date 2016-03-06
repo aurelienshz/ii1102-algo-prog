@@ -21,23 +21,33 @@ public class Config {
 	/**
 	 * Durée de l'animation :
 	 */
-	public static final double duration = 10; // s
+	public static final double duration = 15; // s
 	
 	/**
 	 * Largeur des balles :
 	 */
-	public static final float width = .03f;
+	public static final float diameter = .03f;
 	
 	/**
 	 * Limites géographiques de l'espace :
 	 */
 	public static final double top = 1;
 	public static final double bottom = 0;
-	public static final double right = 1;
+	public static final double right = 2;
 	public static final double left = 0;
 	
 	/**
 	 * Couleur par défaut des balles :
 	 */
 	public static final Color defaultColor = StdDraw.RED;
+	
+	/**
+	 * Ratio px/m pour l'affichage :
+	 */
+	public static final int pxRatio = 256;
+	
+	/**
+	 * Masse des balles :
+	 */
+	public static final double mass = .1; // kg
 }
