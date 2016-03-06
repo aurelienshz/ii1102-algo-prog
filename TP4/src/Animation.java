@@ -11,12 +11,14 @@ public class Animation {
 		
 		StdDraw.setXscale(-width, xMax+width);
 		StdDraw.setYscale(-width, yMax+width);
-		StdDraw.setPenColor(StdDraw.GREEN);
+		StdDraw.setPenColor(StdDraw.RED);
 	}
 	
-	public void nextFrame(double x, double y) {
+	public void nextFrame(Balle[] balles) {
 		StdDraw.clear(StdDraw.WHITE);
-		StdDraw.filledCircle(x, y, width);
+    	for(Balle balle : balles) {
+    		StdDraw.filledCircle(balle.x, balle.y, width);
+    	}
 		StdDraw.show(10);
 	}
 }

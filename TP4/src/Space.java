@@ -18,21 +18,23 @@ public class Space {
     /**
      * Balles présentes dans l'espace :
      */
-    private Balle baballe;
+    private Balle[] baballes;
 
     /**
      * Consructeur : prend en argument la balle à placer dans l'espace :
      */
-    public Space(Balle baballe) {
-        this.baballe = baballe;
+    public Space(Balle[] baballes) {
+        this.baballes = baballes;
     }
 
     public void next() {
-        baballe.next();
-        this.bounce();
+    	for(Balle balle : baballes) {
+    		balle.next();
+            this.bounce(balle);
+    	}
     }
 
-    public void bounce() {
+    public void bounce(Balle baballe) {
         if(baballe.y > this.top) {
             baballe.y = this.top - (baballe.y - this.top);
             baballe.Vy = -baballe.Vy * e;
