@@ -1,0 +1,19 @@
+
+public class Node {
+	public Node filsGauche;
+	public Node filsDroit;
+	public String name;
+	
+	public Node(String name) {
+		this.name = name;
+	}
+	
+	public Node setFilsDroit(String name) {
+		this.filsDroit = new Node(name);
+		return this.FilsDroit;
+	}
+	
+	public Node setFilsGauche(String name) {
+		this.filsGauche = new Node(name);
+	}
+}

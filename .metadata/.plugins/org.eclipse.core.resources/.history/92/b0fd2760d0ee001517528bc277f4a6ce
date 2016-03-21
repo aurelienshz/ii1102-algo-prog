@@ -1,0 +1,47 @@
+
+public class Node {
+	private Node filsGauche;
+	private Node filsDroit;
+	private String name;
+	
+	public Node(String name) {
+		this.name = name;
+	}
+	
+	public Node(String name, String leftName, string rightName) {
+		this.name = name;
+	}
+	
+	
+	public Node getFilsGauche() {
+		return this.filsGauche;
+	}
+	
+	public Node setFilsGauche(String name) {
+		this.filsGauche = new Node(name);
+		return this;
+	}
+	
+	public Node getFilsDroit() {
+		return this.filsDroit;
+	}
+	
+	public Node setFilsDroit(String name) {
+		this.filsDroit = new Node(name);
+		return this;
+	}
+	
+	public String getName() {
+		return this.name;
+	}
+	
+	public Node setName(String name) {
+		this.name = name;
+		return this;
+	}
+	
+	public Node[] getFils() {
+		Node[] fils = {this.filsGauche, this.filsDroit};
+		return fils;
+	}
+}

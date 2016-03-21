@@ -1,0 +1,24 @@
+public class File {
+	public static void main(String[] args) {
+		int[] tablo = new int[10];
+		
+		tablo = new int[tablo.length + 1];
+		System.out.println(tablo.length);
+		tablo = new int[tablo.length + 1];
+		System.out.println(tablo.length);
+		tablo = new int[tablo.length + 1];
+		System.out.println(tablo.length);
+	}
+	
+	private Node[] nodes; 
+	
+	public static void add(int n) {
+	}
+	
+	public class Node {
+		public int value;
+		public int next;
+		
+	}
+	
+}

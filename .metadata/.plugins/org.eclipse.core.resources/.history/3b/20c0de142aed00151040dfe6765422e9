@@ -1,0 +1,30 @@
+public class File {
+	public static void main(String[] args) {
+	}
+	
+	private Node[] nodes; 
+	
+	public void add(int n) {
+		Node[] temp = this.nodes;
+		this.nodes = new Node[this.nodes.length + 1];
+		for(int i = 0; i<temp.length; i++) {
+			this.nodes[i] = temp[i];
+		}
+		
+		this.nodes[this.nodes.length - 1] = new Node(n);
+		
+	}
+	
+	public int take() {
+		
+	}
+	
+	public class Node {
+		public int value;
+		
+		public Node(int n) {
+			this.value = n;
+		}
+	}
+	
+}

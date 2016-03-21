@@ -1,0 +1,61 @@
+import java.util.Scanner;
+
+public class Tp{
+	
+	public static Scanner scan = new Scanner(System.in);
+	
+	public static void main(String[] args) {
+		System.out.println("* PALINDROME * : entrez une phrase \n");
+		
+		String phrase = scan.next();
+		
+		System.out.println((isPalindrome(phrase)?"C'est un ":"Ce n'est pas un ")+"palidrome !");
+		
+		int[] crible = erathostene(100);
+		
+		System.out.println("* CRIBLE *");
+		for(int i = 0; i < crible.length; i++) {
+			System.out.println(crible[i]);
+		}
+		
+	}
+	
+	public static boolean isPalindrome(String phrase) {
+		if(phrase.length() <= 1) {
+			return true;
+		}
+		
+		if(phrase.charAt(0) == phrase.charAt(phrase.length() - 1)) {
+			phrase = phrase.substring(1, phrase.length() - 1);
+			return(isPalindrome(phrase));
+		}
+		else {
+			return false;
+		}
+	}
+	
+	/**
+	 * Tester la primalité d'un nombre grâce au crible d'Érathostène
+	 * @param n Le nombre à tester
+	 * @return Un booléen représentant la primalité du nombre 
+	 */
+	public static int[] erathostene(int n) {
+		int[] crible = new int[n+1];
+		for(int i = 0; i<=n; i++) {
+			crible[i] = i;
+		}
+		crible[0] = 0;
+		crible[1] = 0;
+		for(int i = 1; i<n+1; i++) {
+			if(crible[i] == 0) {
+				int j = 1;
+				while(crible[j] <= n) {
+					crible[i*j] = 0;
+					j++;
+				}
+			}
+		}
+		return crible;
+	}
+	
+}

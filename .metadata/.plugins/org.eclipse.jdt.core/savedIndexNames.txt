@@ -1,0 +1,5 @@
+INDEX VERSION 1.127+/home/aurelien/Documents/ISEP/Algo Java/git/.metadata/.plugins/org.eclipse.jdt.core
+1588100975.index
+3332695856.index
+3349229269.index
+699355129.index

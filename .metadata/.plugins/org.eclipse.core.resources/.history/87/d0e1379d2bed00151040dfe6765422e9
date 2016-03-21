@@ -1,0 +1,26 @@
+
+public class Main {
+	
+	public static void main(String[] args) {
+		File file = new File();
+		
+		file.add(1);
+		file.add(3);
+		file.add(5);
+		
+		file.display();
+		
+		System.out.println();
+		
+		file.take();
+		file.display();
+		
+		System.out.println();
+		
+		file.add(6);
+		file.add(9);
+		
+		file.display();
+	}
+
+}

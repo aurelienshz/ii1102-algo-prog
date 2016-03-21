@@ -1,0 +1,46 @@
+public class File {
+	
+	private Node[] nodes;
+	
+	public File() {
+		this.nodes = new Node[0];
+	}
+	
+	public void add(int n) {
+		Node[] temp = this.nodes;
+		this.nodes = new Node[this.nodes.length + 1];
+		for(int i = 0; i<temp.length; i++) {
+			this.nodes[i] = temp[i];
+		}
+		
+		this.nodes[this.nodes.length - 1] = new Node(n);
+		
+	}
+	
+	public int take() {
+		int n = this.nodes[0].value;
+		
+		Node[] temp = this.nodes;
+		this.nodes = new Node[this.nodes.length - 1];
+		for(int i = 0; i < temp.length - 1; i++) {
+			this.nodes[i] = temp[i];
+		}
+		
+		return n;
+	}
+	
+	public void display() {
+		for(int i = 0; i<nodes.length; i++) {
+			System.out.print(nodes[i].value + "  ");
+		}
+	}
+	
+	public class Node {
+		public int value;
+		
+		public Node(int n) {
+			this.value = n;
+		}
+	}
+	
+}

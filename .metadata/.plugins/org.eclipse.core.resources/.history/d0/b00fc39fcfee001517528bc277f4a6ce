@@ -1,0 +1,18 @@
+
+public class Tp6 {
+	/**
+	 * Démonstration demandées dans le sujet :
+	 */
+	public static void main(String[] args) {
+		/** On fait pousser l'arbre en partant des racines et en montant vers les feuilles.
+		 * Les setter de fils retournent le noeud courant, ce qui permet de chaîner les méthodes.
+		 */ 
+		ArbreBinaire arbre = new ArbreBinaire("A");
+		arbre.getRacine().setFilsGauche("B")
+						 .setFilsDroit("C");
+		
+		System.out.println(arbre.getRacine().getName());
+		System.out.println(arbre.getRacine().getFilsGauche().getName());
+		
+	}
+}

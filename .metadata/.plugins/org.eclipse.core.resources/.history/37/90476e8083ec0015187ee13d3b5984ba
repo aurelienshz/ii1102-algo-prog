@@ -1,0 +1,87 @@
+import java.util.Scanner;
+
+public class Tp{
+	
+	public static Scanner scan = new Scanner(System.in);
+	
+	public static void main(String[] args) {
+		
+		System.out.println("* PALINDROME * : entrez une phrase \n");
+		
+		String phrase = scan.next();
+		
+		System.out.println((isPalindrome(phrase)?"C'est un ":"Ce n'est pas un ")+"palidrome ! \n\n");
+		
+		premier();
+		
+	}
+	
+	public static void premier() {
+		
+		System.out.println("** ERATHOSTENE **");
+		System.out.println("Saisissez un entier :");
+		int n = scan.nextInt();
+		
+		int[] crible = erathostene(n);
+		
+		System.out.println("* CRIBLE *");
+		for(int i = 0; i < crible.length; i++) {
+			if(crible[i] != 0) {
+				System.out.println(crible[i]);
+			}
+		}
+	}
+	
+	public static boolean isPalindrome(String phrase) {
+		if(phrase.length() <= 1) {
+			return true;
+		}
+		
+		if(phrase.charAt(0) == phrase.charAt(phrase.length() - 1)) {
+			phrase = phrase.substring(1, phrase.length() - 1);
+			return(isPalindrome(phrase));
+		}
+		else {
+			return false;
+		}
+	}
+	
+	/**
+	 * Remplit le crible d'Érathostène
+	 * @param n Le nombre max du crible
+	 * @return Un tableau d'entiers contenant le crible (0 --> nombre pas premier)
+	 */
+	public static int[] erathostene(int n) {
+		int[] crible = new int[n+1];
+		for(int i = 0; i<=n; i++) {
+			crible[i] = i;
+		}
+		crible[0] = 0;
+		crible[1] = 0;
+		for(int i = 2; i<n+1; i++) {
+			if(crible[i] != 0) {
+				int j = 2; // Sert à compter les multiples que l'on a passé à 0
+				while(i*j <= n) {
+					crible[i*j] = 0;
+					j++;
+				}
+			}
+		}
+		return crible;
+	}
+	
+	
+	/**
+	 * Tester la primalité d'un nombre grâce au crible d'Érathostène (méthode récursive)
+	 * @param 
+	 * @return
+	 */
+	public static int[] erathosteneR(int[] crible) {
+		if(true) {
+			return crible;
+		}
+		else {
+			for(int i=0; i<crible.length; i++)
+		}	
+	}
+}
